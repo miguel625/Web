@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como integrar Django y Bootstrap 4 </title>
+
+    {# Cargamos la librería #}
+    {% load bootstrap4 %}
+
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+</head>
+<body background="https://img.myloview.es/cuadros/patron-web-textura-para-fondo-de-pantalla-rellenos-fondo-de-la-pagina-web-400-119131393.jpg">
+    <br>
+    <div class="mx-auto" style="width: 200px;">
+        <div class="container">
+            <form action="" method="POST">
+                <!-- init cifrado -->
+                    {% csrf_token%}
+                <!-- end cifrado -->
+            <!-- init image -->
+            <div class="form-group" style="text-align: center;"> 
+                <br>
+                <div style="text-align: center;">
+                <img src="https://joesknowsfood.com/wp-content/uploads/2018/01/instagram-logo-vector-download-200x200.jpg" alt="..." class="rounded-circle" style="width: 100px;">
+            </div>
+            <!-- end image -->
+                <br>
+                <div class="form-group">
+                    <input type="text" class="form-control border border-danger" placeholder="Email" name="user" required>
+                </div>
+                <div class="form-group">
+                   <input type="password" class="form-control border border-danger" placeholder="Password" name="password" required> 
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-outline-danger">Aceptar</button>
+                    <br>
+                        {%if error%}
+                        <div class="alert alert-warning" role="alert">
+                            {{error}}
+                        </div>
+                        {%endif%}
+                </div>
+                <a href="{% url 'Landing:Landing'%}">Ir a Landing</a>
+                <br>
+                <a href="{% url 'Registro:Registro'%}">Registrarse</a>
+            </div>
+            </form>
+        </div> 
+    </div>
+   
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>

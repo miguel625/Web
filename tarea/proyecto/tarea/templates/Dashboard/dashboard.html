@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    {# Cargamos la librería #}
+    {% load bootstrap4 %}
+
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+</head>
+<body background="https://img.myloview.es/cuadros/patron-web-textura-para-fondo-de-pantalla-rellenos-fondo-de-la-pagina-web-400-119131393.jpg">
+    <div style="text-align: center;">
+        <br>
+        <br>
+        <br>
+        <br><br>
+        <h3>Informacion del usuario</h3>
+        <br><br>
+        <h4 style="color:red">Nombre de Usuario: {{request.user.username}}</h4>
+        <h4 style="color:red">Nombre de la persona{{request.user.first_name}}</h4>
+        <h4 style="color:red">Apellido de la persona {{request.user.last_name}}</h4>
+        <h4 style="color:red">Email {{request.user.email}}</h4>
+        <br>
+<a href="{% url 'logout' %}">Cerrar sesion</a>
+    </div>
+    {% bootstrap_javascript jquery='full' %}
+</body>
+</html>
